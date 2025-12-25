@@ -13,7 +13,40 @@ A web-based configuration UI for Technitium DNS Server apps. This tool allows yo
 
 ## Quick Start
 
-### Using Docker/Podman
+### Using Pre-built Docker Image (Recommended)
+
+The easiest way to get started is using the pre-built image from Docker Hub:
+
+```bash
+docker run -d -p 3000:80 --name technitium-config lennysh/technitium-app-configurator:latest
+```
+
+Or with Podman:
+```bash
+podman run -d -p 3000:80 --name technitium-config lennysh/technitium-app-configurator:latest
+```
+
+Then access the webapp at `http://localhost:3000`
+
+**Available on Docker Hub:** [lennysh/technitium-app-configurator](https://hub.docker.com/r/lennysh/technitium-app-configurator)
+
+### Custom Port
+
+To use a different port, map it when running the container:
+```bash
+docker run -d -p 8080:80 --name technitium-config lennysh/technitium-app-configurator:latest
+```
+
+### Using Specific Version
+
+To use a specific version instead of `latest`:
+```bash
+docker run -d -p 3000:80 --name technitium-config lennysh/technitium-app-configurator:1.0.0
+```
+
+### Building from Source
+
+If you prefer to build the container yourself:
 
 1. **Build the container:**
    ```bash
@@ -27,18 +60,6 @@ A web-based configuration UI for Technitium DNS Server apps. This tool allows yo
 
 3. **Access the webapp:**
    Open your browser and navigate to `http://localhost:3000`
-
-### Custom Port
-
-The default port is 3000. To use a different port, set the `PORT` environment variable:
-```bash
-PORT=8080 ./scripts/start.sh
-```
-
-Or for any other port:
-```bash
-PORT=9000 ./scripts/start.sh
-```
 
 ### Redeploy
 
@@ -250,10 +271,11 @@ Releases are automatically built and published to Docker Hub when:
 - **Pushing to a release branch**: Push to a branch named `release/X.Y.Z` or `releases/X.Y.Z` (e.g., `release/1.0.0`).
 - **Manual trigger**: Use the "Run workflow" button in GitHub Actions and specify a version number.
 
-The image will be available on Docker Hub as:
-```
-docker pull <your-dockerhub-username>/technitium-app-configurator:<version>
-docker pull <your-dockerhub-username>/technitium-app-configurator:latest
+The image is available on Docker Hub at [lennysh/technitium-app-configurator](https://hub.docker.com/r/lennysh/technitium-app-configurator):
+
+```bash
+docker pull lennysh/technitium-app-configurator:<version>
+docker pull lennysh/technitium-app-configurator:latest
 ```
 
 ### Setting up Docker Hub credentials
