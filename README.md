@@ -30,6 +30,8 @@ Then access the webapp at `http://localhost:3000`
 
 **Available on Docker Hub:** [lennysh/technitium-app-configurator](https://hub.docker.com/r/lennysh/technitium-app-configurator)
 
+> **Note:** Current version is 0.1.0 (pre-release). Use `:latest` for the most recent build or `:0.1.0` for the specific version.
+
 ### Custom Port
 
 To use a different port, map it when running the container:
@@ -41,8 +43,10 @@ docker run -d -p 8080:80 --name technitium-config lennysh/technitium-app-configu
 
 To use a specific version instead of `latest`:
 ```bash
-docker run -d -p 3000:80 --name technitium-config lennysh/technitium-app-configurator:1.0.0
+docker run -d -p 3000:80 --name technitium-config lennysh/technitium-app-configurator:0.1.0
 ```
+
+**Current version:** 0.1.0 (pre-release)
 
 ### Building from Source
 
@@ -267,8 +271,8 @@ See the [LICENSE](LICENSE) file for the full license text.
 
 Releases are automatically built and published to Docker Hub when:
 
-- **Creating a GitHub Release**: When you create a release on GitHub (e.g., `v1.0.0`), the workflow automatically builds and pushes the image with that version tag.
-- **Pushing to a release branch**: Push to a branch named `release/X.Y.Z` or `releases/X.Y.Z` (e.g., `release/1.0.0`).
+- **Creating a GitHub Release**: When you create a release on GitHub (e.g., `v0.1.0`), the workflow automatically builds and pushes the image with that version tag.
+- **Pushing to a release branch**: Push to a branch named `release/X.Y.Z` or `releases/X.Y.Z` (e.g., `release/0.1.0`).
 - **Manual trigger**: Use the "Run workflow" button in GitHub Actions and specify a version number.
 
 The image is available on Docker Hub at [lennysh/technitium-app-configurator](https://hub.docker.com/r/lennysh/technitium-app-configurator):
