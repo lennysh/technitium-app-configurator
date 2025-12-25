@@ -2,6 +2,8 @@
 
 A web-based configuration UI for Technitium DNS Server apps. This tool allows you to easily configure any Technitium DNS Server app through a user-friendly interface and export the configuration JSON that can be directly used in Technitium DNS Server.
 
+> **⚠️ Pre-Release Notice:** This is currently a pre-release version (0.1.0). Not everything has been fully tested yet. We're actively looking for testers to help identify issues and provide feedback. Please report any bugs or issues by opening an issue on the [GitHub repository](https://github.com/lennysh/technitium-app-configurator).
+
 ## Features
 
 - **Web-based UI**: Modern, responsive interface for configuring apps
@@ -293,8 +295,16 @@ To enable automatic publishing, add the following secrets to your GitHub reposit
 
 ## Contributing
 
-Contributions are welcome! To add support for new Technitium DNS Server apps:
+Contributions are welcome! We're especially looking for:
+
+- **Testers** - Help us test the application and report bugs or issues
+- **Feedback** - Share your experience and suggestions for improvements
+- **New App Configs** - Add support for additional Technitium DNS Server apps
+
+To add support for new Technitium DNS Server apps:
 
 1. Create a JSON config file following the structure shown in the "Adding New Apps" section
 2. Add the filename to `config-files.json`
 3. Submit a pull request
+
+To report bugs or issues, please open an issue on the [GitHub repository](https://github.com/lennysh/technitium-app-configurator).
