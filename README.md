@@ -19,6 +19,7 @@ A web-based configuration UI for Technitium DNS Server apps. This tool allows yo
 
 The easiest way to get started is using the pre-built image from Docker Hub:
 
+**Docker Run:**
 ```bash
 docker run -d -p 3000:80 --name technitium-config lennysh/technitium-app-configurator:latest
 ```
@@ -26,6 +27,28 @@ docker run -d -p 3000:80 --name technitium-config lennysh/technitium-app-configu
 Or with Podman:
 ```bash
 podman run -d -p 3000:80 --name technitium-config lennysh/technitium-app-configurator:latest
+```
+
+**Docker Compose:**
+
+Create a `docker-compose.yml` file:
+
+```yaml
+version: '3.8'
+
+services:
+  technitium-config:
+    image: lennysh/technitium-app-configurator:latest
+    container_name: technitium-config
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+```
+
+Then run:
+
+```bash
+docker-compose up -d
 ```
 
 Then access the webapp at `http://localhost:3000`
@@ -36,9 +59,22 @@ Then access the webapp at `http://localhost:3000`
 
 ### Custom Port
 
-To use a different port, map it when running the container:
+**Docker Run:**
 ```bash
 docker run -d -p 8080:80 --name technitium-config lennysh/technitium-app-configurator:latest
+```
+
+**Docker Compose:**
+```yaml
+version: '3.8'
+
+services:
+  technitium-config:
+    image: lennysh/technitium-app-configurator:latest
+    container_name: technitium-config
+    ports:
+      - "8080:80"
+    restart: unless-stopped
 ```
 
 ### Using Specific Version
