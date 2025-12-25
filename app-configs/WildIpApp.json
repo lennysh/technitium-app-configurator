@@ -1,0 +1,45 @@
+{
+  "id": "WildIpApp",
+  "name": "Wild IP App",
+  "description": "Returns wildcard IP addresses for configured domains.",
+  "fields": [
+    {
+      "name": "enable",
+      "type": "boolean",
+      "label": "Enable",
+      "default": true,
+      "help": "Enable or disable wild IP functionality"
+    },
+    {
+      "name": "domains",
+      "type": "array-of-objects",
+      "label": "Wild IP Domains",
+      "itemLabel": "Domain",
+      "help": "Configure domains to return wildcard IP addresses",
+      "itemProperties": [
+        {
+          "name": "domain",
+          "type": "string",
+          "label": "Domain",
+          "required": true,
+          "help": "Domain name pattern"
+        },
+        {
+          "name": "ipv4",
+          "type": "string",
+          "label": "IPv4 Address",
+          "placeholder": "0.0.0.0",
+          "help": "Wildcard IPv4 address to return"
+        },
+        {
+          "name": "ipv6",
+          "type": "string",
+          "label": "IPv6 Address",
+          "placeholder": "::",
+          "help": "Wildcard IPv6 address to return"
+        }
+      ]
+    }
+  ]
+}
+

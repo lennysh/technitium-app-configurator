@@ -1,0 +1,75 @@
+{
+  "id": "MispConnectorApp",
+  "name": "MISP Connector App",
+  "description": "Blocks domains and IPs based on MISP (Malware Information Sharing Platform) IOCs.",
+  "fields": [
+    {
+      "name": "enableBlocking",
+      "type": "boolean",
+      "label": "Enable Blocking",
+      "default": true,
+      "help": "Enable or disable blocking based on MISP IOCs"
+    },
+    {
+      "name": "mispServerUrl",
+      "type": "url",
+      "label": "MISP Server URL",
+      "required": true,
+      "placeholder": "https://misp.example.com",
+      "help": "URL of the MISP server"
+    },
+    {
+      "name": "mispApiKey",
+      "type": "string",
+      "label": "MISP API Key",
+      "required": true,
+      "help": "API key for MISP server authentication"
+    },
+    {
+      "name": "disableTlsValidation",
+      "type": "boolean",
+      "label": "Disable TLS Validation",
+      "default": false,
+      "help": "Disable TLS certificate validation (not recommended)"
+    },
+    {
+      "name": "updateInterval",
+      "type": "string",
+      "label": "Update Interval",
+      "default": "2h",
+      "placeholder": "2h, 30m, 1d",
+      "help": "Interval between MISP updates (e.g., '2h', '30m', '1d')"
+    },
+    {
+      "name": "maxIocAge",
+      "type": "string",
+      "label": "Max IOC Age",
+      "default": "30d",
+      "placeholder": "30d, 7d, 1w",
+      "help": "Maximum age of IOCs to use (e.g., '30d', '7d', '1w')"
+    },
+    {
+      "name": "allowTxtBlockingReport",
+      "type": "boolean",
+      "label": "Allow TXT Blocking Report",
+      "default": true,
+      "help": "Allow TXT queries to return blocking information"
+    },
+    {
+      "name": "paginationLimit",
+      "type": "number",
+      "label": "Pagination Limit",
+      "default": 5000,
+      "min": 1,
+      "help": "Maximum number of IOCs to fetch per page"
+    },
+    {
+      "name": "addExtendedDnsError",
+      "type": "boolean",
+      "label": "Add Extended DNS Error",
+      "default": true,
+      "help": "Add extended DNS error information to responses"
+    }
+  ]
+}
+

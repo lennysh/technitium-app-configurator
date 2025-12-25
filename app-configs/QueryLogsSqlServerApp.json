@@ -1,0 +1,31 @@
+{
+  "id": "QueryLogsSqlServerApp",
+  "name": "Query Logs SQL Server App",
+  "description": "Stores DNS query logs in a SQL Server database.",
+  "fields": [
+    {
+      "name": "enableLogging",
+      "type": "boolean",
+      "label": "Enable Logging",
+      "default": true,
+      "help": "Enable or disable query logging"
+    },
+    {
+      "name": "maxQueueSize",
+      "type": "number",
+      "label": "Max Queue Size",
+      "default": 200000,
+      "min": 0,
+      "help": "Maximum number of log entries to queue"
+    },
+    {
+      "name": "connectionString",
+      "type": "string",
+      "label": "Connection String",
+      "required": true,
+      "placeholder": "Server=localhost;Database=dnslogs;User Id=user;Password=pass;",
+      "help": "SQL Server connection string"
+    }
+  ]
+}
+

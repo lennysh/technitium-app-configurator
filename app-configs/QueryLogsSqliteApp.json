@@ -1,0 +1,67 @@
+{
+  "id": "QueryLogsSqliteApp",
+  "name": "Query Logs SQLite App",
+  "description": "Stores DNS query logs in a SQLite database.",
+  "fields": [
+    {
+      "name": "enableLogging",
+      "type": "boolean",
+      "label": "Enable Logging",
+      "default": true,
+      "help": "Enable or disable query logging"
+    },
+    {
+      "name": "maxQueueSize",
+      "type": "number",
+      "label": "Max Queue Size",
+      "default": 200000,
+      "min": 0,
+      "help": "Maximum number of log entries to queue"
+    },
+    {
+      "name": "maxLogDays",
+      "type": "number",
+      "label": "Max Log Days",
+      "default": 7,
+      "min": 0,
+      "help": "Maximum number of days to keep logs"
+    },
+    {
+      "name": "maxLogRecords",
+      "type": "number",
+      "label": "Max Log Records",
+      "default": 10000,
+      "min": 0,
+      "help": "Maximum number of log records to keep"
+    },
+    {
+      "name": "enableVacuum",
+      "type": "boolean",
+      "label": "Enable Vacuum",
+      "default": false,
+      "help": "Enable SQLite VACUUM operation for database maintenance"
+    },
+    {
+      "name": "useInMemoryDb",
+      "type": "boolean",
+      "label": "Use In-Memory Database",
+      "default": false,
+      "help": "Use in-memory SQLite database (data lost on restart)"
+    },
+    {
+      "name": "sqliteDbPath",
+      "type": "string",
+      "label": "SQLite Database Path",
+      "default": "querylogs.db",
+      "help": "Path to SQLite database file"
+    },
+    {
+      "name": "connectionString",
+      "type": "string",
+      "label": "Connection String",
+      "default": "Data Source='{sqliteDbPath}'; Cache=Shared;",
+      "help": "SQLite connection string (use {sqliteDbPath} as placeholder)"
+    }
+  ]
+}
+

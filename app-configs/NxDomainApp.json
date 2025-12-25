@@ -1,0 +1,31 @@
+{
+  "id": "NxDomainApp",
+  "name": "NXDOMAIN App",
+  "description": "Returns NXDOMAIN responses for configured domains.",
+  "fields": [
+    {
+      "name": "enableNxDomain",
+      "type": "boolean",
+      "label": "Enable NXDOMAIN",
+      "default": true,
+      "help": "Enable or disable NXDOMAIN responses"
+    },
+    {
+      "name": "domains",
+      "type": "array",
+      "label": "Domains",
+      "itemLabel": "Domain",
+      "itemType": "string",
+      "help": "Domains to return NXDOMAIN for"
+    },
+    {
+      "name": "networks",
+      "type": "array",
+      "label": "Networks",
+      "itemLabel": "Network",
+      "itemType": "string",
+      "help": "Network addresses/subnets to apply NXDOMAIN to (CIDR notation)"
+    }
+  ]
+}
+

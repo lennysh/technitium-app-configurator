@@ -1,0 +1,16 @@
+{
+  "id": "GeoContinentApp",
+  "name": "Geo Continent App",
+  "description": "Routes DNS queries based on client's continent using MaxMind GeoIP2.",
+  "fields": [
+    {
+      "name": "note",
+      "type": "textarea",
+      "label": "Note",
+      "default": "This app requires MaxMind GeoIP2 database files. Configuration is typically done through the Technitium DNS Server web interface.",
+      "rows": 3,
+      "help": "Geo Continent App requires MaxMind GeoIP2 database files and is typically configured through the Technitium DNS Server web interface."
+    }
+  ]
+}
+

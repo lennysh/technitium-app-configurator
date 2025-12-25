@@ -1,0 +1,31 @@
+{
+  "id": "NoDataApp",
+  "name": "No Data App",
+  "description": "Returns NO DATA responses for configured queries.",
+  "fields": [
+    {
+      "name": "enableNoData",
+      "type": "boolean",
+      "label": "Enable No Data",
+      "default": true,
+      "help": "Enable or disable NO DATA responses"
+    },
+    {
+      "name": "domains",
+      "type": "array",
+      "label": "Domains",
+      "itemLabel": "Domain",
+      "itemType": "string",
+      "help": "Domains to return NO DATA for"
+    },
+    {
+      "name": "queryTypes",
+      "type": "array",
+      "label": "Query Types",
+      "itemLabel": "Query Type",
+      "itemType": "string",
+      "help": "DNS query types to return NO DATA for (e.g., 'A', 'AAAA', 'MX')"
+    }
+  ]
+}
+

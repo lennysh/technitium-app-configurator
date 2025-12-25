@@ -1,0 +1,63 @@
+{
+  "id": "DnsBlockListApp",
+  "name": "DNS Block List App",
+  "description": "Blocks domains or IPs based on block list files.",
+  "fields": [
+    {
+      "name": "dnsBlockLists",
+      "type": "array-of-objects",
+      "label": "DNS Block Lists",
+      "itemLabel": "Block List",
+      "help": "Configure DNS block lists (IP or domain based)",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Name",
+          "required": true,
+          "help": "Unique name for this block list"
+        },
+        {
+          "name": "type",
+          "type": "select",
+          "label": "Type",
+          "required": true,
+          "options": [
+            { "value": "ip", "label": "IP Block List" },
+            { "value": "domain", "label": "Domain Block List" }
+          ],
+          "help": "Type of block list"
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "label": "Enabled",
+          "default": true
+        },
+        {
+          "name": "responseA",
+          "type": "string",
+          "label": "Response A Record",
+          "placeholder": "127.0.0.2",
+          "help": "IPv4 address to return for blocked entries"
+        },
+        {
+          "name": "responseTXT",
+          "type": "string",
+          "label": "Response TXT Record",
+          "placeholder": "https://example.com/dnsbl?ip={ip}",
+          "help": "TXT record template (use {ip} or {domain} as placeholders)"
+        },
+        {
+          "name": "blockListFile",
+          "type": "string",
+          "label": "Block List File",
+          "required": true,
+          "placeholder": "ip-blocklist.txt",
+          "help": "Filename of the block list file in the app directory"
+        }
+      ]
+    }
+  ]
+}
+

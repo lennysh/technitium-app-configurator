@@ -1,0 +1,31 @@
+{
+  "configFiles": [
+    "AdvancedBlockingApp.json",
+    "AdvancedForwardingApp.json",
+    "AutoPtrApp.json",
+    "BlockPageApp.json",
+    "DefaultRecordsApp.json",
+    "DnsBlockListApp.json",
+    "DnsRebindingProtectionApp.json",
+    "DropRequestsApp.json",
+    "FailoverApp.json",
+    "FilterAaaaApp.json",
+    "GeoContinentApp.json",
+    "GeoCountryApp.json",
+    "GeoDistanceApp.json",
+    "LogExporterApp.json",
+    "MispConnectorApp.json",
+    "NoDataApp.json",
+    "NxDomainApp.json",
+    "NxDomainOverrideApp.json",
+    "QueryLogsMySqlApp.json",
+    "QueryLogsSqliteApp.json",
+    "QueryLogsSqlServerApp.json",
+    "SplitHorizonApp.json",
+    "WeightedRoundRobinApp.json",
+    "WhatIsMyDnsApp.json",
+    "WildIpApp.json",
+    "ZoneAliasApp.json"
+  ]
+}
+

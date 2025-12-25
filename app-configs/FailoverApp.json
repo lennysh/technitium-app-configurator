@@ -1,0 +1,224 @@
+{
+  "id": "FailoverApp",
+  "name": "Failover App",
+  "description": "Provides DNS failover based on health checks.",
+  "fields": [
+    {
+      "name": "healthChecks",
+      "type": "array-of-objects",
+      "label": "Health Checks",
+      "itemLabel": "Health Check",
+      "help": "Configure health checks for failover",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Name",
+          "required": true,
+          "help": "Unique name for this health check"
+        },
+        {
+          "name": "type",
+          "type": "select",
+          "label": "Type",
+          "required": true,
+          "options": [
+            { "value": "ping", "label": "Ping" },
+            { "value": "tcp", "label": "TCP" },
+            { "value": "http", "label": "HTTP" },
+            { "value": "https", "label": "HTTPS" }
+          ],
+          "help": "Type of health check"
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "label": "Interval (seconds)",
+          "default": 60,
+          "min": 1,
+          "help": "Interval between health checks"
+        },
+        {
+          "name": "retries",
+          "type": "number",
+          "label": "Retries",
+          "default": 3,
+          "min": 0,
+          "help": "Number of retries before marking as failed"
+        },
+        {
+          "name": "timeout",
+          "type": "number",
+          "label": "Timeout (seconds)",
+          "default": 10,
+          "min": 1,
+          "help": "Timeout for health check"
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "label": "Port",
+          "min": 1,
+          "max": 65535,
+          "help": "Port for TCP health checks"
+        },
+        {
+          "name": "url",
+          "type": "url",
+          "label": "URL",
+          "help": "URL for HTTP/HTTPS health checks"
+        },
+        {
+          "name": "emailAlert",
+          "type": "string",
+          "label": "Email Alert",
+          "help": "Name of email alert configuration to use"
+        },
+        {
+          "name": "webHook",
+          "type": "string",
+          "label": "Web Hook",
+          "help": "Name of webhook configuration to use"
+        }
+      ]
+    },
+    {
+      "name": "emailAlerts",
+      "type": "array-of-objects",
+      "label": "Email Alerts",
+      "itemLabel": "Email Alert",
+      "help": "Configure email alert settings",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Name",
+          "required": true,
+          "help": "Unique name for this email alert configuration"
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "label": "Enabled",
+          "default": false
+        },
+        {
+          "name": "alertTo",
+          "type": "array",
+          "label": "Alert To",
+          "itemLabel": "Email",
+          "itemType": "string",
+          "help": "Email addresses to send alerts to"
+        },
+        {
+          "name": "smtpServer",
+          "type": "string",
+          "label": "SMTP Server",
+          "help": "SMTP server address"
+        },
+        {
+          "name": "smtpPort",
+          "type": "number",
+          "label": "SMTP Port",
+          "default": 465,
+          "min": 1,
+          "max": 65535,
+          "help": "SMTP server port"
+        },
+        {
+          "name": "startTls",
+          "type": "boolean",
+          "label": "Start TLS",
+          "default": false,
+          "help": "Use STARTTLS"
+        },
+        {
+          "name": "smtpOverTls",
+          "type": "boolean",
+          "label": "SMTP Over TLS",
+          "default": true,
+          "help": "Use SMTP over TLS (SMTPS)"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "label": "Username",
+          "help": "SMTP authentication username"
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "label": "Password",
+          "help": "SMTP authentication password"
+        },
+        {
+          "name": "mailFrom",
+          "type": "string",
+          "label": "Mail From",
+          "help": "From email address"
+        },
+        {
+          "name": "mailFromName",
+          "type": "string",
+          "label": "Mail From Name",
+          "help": "From name"
+        }
+      ]
+    },
+    {
+      "name": "webHooks",
+      "type": "array-of-objects",
+      "label": "Web Hooks",
+      "itemLabel": "Web Hook",
+      "help": "Configure webhook settings",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Name",
+          "required": true,
+          "help": "Unique name for this webhook configuration"
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "label": "Enabled",
+          "default": false
+        },
+        {
+          "name": "urls",
+          "type": "array",
+          "label": "URLs",
+          "itemLabel": "URL",
+          "itemType": "url",
+          "help": "Webhook URLs to call"
+        }
+      ]
+    },
+    {
+      "name": "underMaintenance",
+      "type": "array-of-objects",
+      "label": "Under Maintenance",
+      "itemLabel": "Network",
+      "help": "Configure networks that are under maintenance",
+      "itemProperties": [
+        {
+          "name": "network",
+          "type": "string",
+          "label": "Network",
+          "required": true,
+          "placeholder": "192.168.10.2/32",
+          "help": "Network address or subnet (CIDR notation)"
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "label": "Enabled",
+          "default": false,
+          "help": "Enable maintenance mode for this network"
+        }
+      ]
+    }
+  ]
+}
+

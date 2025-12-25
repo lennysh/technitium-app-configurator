@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technitium DNS Server App Configurator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-wrapper">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Technitium DNS Server App Configurator</h1>
+                    <p>Configure and export Technitium DNS Server app configurations</p>
+                    <div class="privacy-notice">
+                        <strong>🔒 Privacy Notice:</strong> This application runs entirely in your browser. 
+                        Your configurations, imports, and exports are never sent to or stored on the server. 
+                        All processing happens locally in your browser.
+                    </div>
+                </div>
+                <div class="header-actions" id="headerActions" style="display: none;">
+                    <button type="button" id="exportBtn" class="btn btn-primary">Export Config</button>
+                    <button type="button" id="importBtn" class="btn btn-secondary">Import Config</button>
+                    <button type="button" id="resetBtn" class="btn btn-secondary">Reset</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="app-selector">
+            <label for="appSelect">Select App:</label>
+            <select id="appSelect">
+                <option value="">-- Select an app --</option>
+            </select>
+        </div>
+
+        <div id="configForm" class="config-form" style="display: none;">
+            <div class="form-header">
+                <h2 id="appName"></h2>
+                <p id="appDescription"></p>
+            </div>
+            <form id="mainForm"></form>
+        </div>
+
+        <div id="exportModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Exported Configuration</h3>
+                    <button class="close-btn" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <textarea id="exportedConfig" readonly></textarea>
+                    <div class="modal-actions">
+                        <button type="button" id="copyBtn" class="btn btn-primary">Copy to Clipboard</button>
+                        <button type="button" id="downloadBtn" class="btn btn-secondary">Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="importModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Import Configuration</h3>
+                    <button class="close-btn" id="closeImportModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <textarea id="importedConfig" placeholder="Paste JSON configuration here..."></textarea>
+                    <div class="modal-actions">
+                        <button type="button" id="importSubmitBtn" class="btn btn-primary">Import</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,97 @@
+{
+  "id": "SplitHorizonApp",
+  "name": "Split Horizon App",
+  "description": "Provides different DNS responses based on client network location.",
+  "fields": [
+    {
+      "name": "appPreference",
+      "type": "number",
+      "label": "App Preference",
+      "default": 40,
+      "min": 0,
+      "help": "Preference value for this app (lower = higher priority)"
+    },
+    {
+      "name": "networks",
+      "type": "object",
+      "label": "Networks",
+      "isKeyValueMap": true,
+      "valueIsArray": true,
+      "keyLabel": "Network Group:",
+      "keyPlaceholder": "custom-networks",
+      "valueLabel": "Networks:",
+      "valuePlaceholder": "172.16.1.0/24, 172.16.10.0/24",
+      "help": "Define network groups with lists of networks (key = group name, value = comma-separated networks)"
+    },
+    {
+      "name": "enableAddressTranslation",
+      "type": "boolean",
+      "label": "Enable Address Translation",
+      "default": false,
+      "help": "Enable address translation between external and internal networks"
+    },
+    {
+      "name": "domainGroupMap",
+      "type": "object",
+      "label": "Domain Group Map",
+      "isKeyValueMap": true,
+      "keyLabel": "Domain:",
+      "keyPlaceholder": "example.com",
+      "valueLabel": "Group:",
+      "valuePlaceholder": "group-name",
+      "help": "Map domains to groups (key = domain, value = group name)"
+    },
+    {
+      "name": "networkGroupMap",
+      "type": "object",
+      "label": "Network Group Map",
+      "isKeyValueMap": true,
+      "keyLabel": "Network:",
+      "keyPlaceholder": "10.0.0.0/8",
+      "valueLabel": "Group:",
+      "valuePlaceholder": "group-name",
+      "help": "Map network addresses/subnets to groups (key = network CIDR, value = group name)"
+    },
+    {
+      "name": "groups",
+      "type": "array-of-objects",
+      "label": "Groups",
+      "itemLabel": "Group",
+      "help": "Define split horizon groups",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Group Name",
+          "required": true,
+          "help": "Unique name for this group"
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "label": "Enabled",
+          "default": true
+        },
+        {
+          "name": "translateReverseLookups",
+          "type": "boolean",
+          "label": "Translate Reverse Lookups",
+          "default": true,
+          "help": "Translate reverse DNS lookups (PTR records)"
+        },
+        {
+          "name": "externalToInternalTranslation",
+          "type": "object",
+          "label": "External to Internal Translation",
+          "isKeyValueMap": true,
+          "keyLabel": "External:",
+          "keyPlaceholder": "1.2.3.4 or 1.2.3.0/24",
+          "valueLabel": "Internal:",
+          "valuePlaceholder": "192.168.1.1",
+          "help": "Map external addresses to internal addresses (key = external, value = internal)"
+        }
+      ]
+    }
+  ]
+}
+

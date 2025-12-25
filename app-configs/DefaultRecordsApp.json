@@ -1,0 +1,65 @@
+{
+  "id": "DefaultRecordsApp",
+  "name": "Default Records App",
+  "description": "Adds default DNS records to zones based on zone name patterns.",
+  "fields": [
+    {
+      "name": "enableDefaultRecords",
+      "type": "boolean",
+      "label": "Enable Default Records",
+      "default": false,
+      "help": "Enable or disable default records functionality"
+    },
+    {
+      "name": "defaultTtl",
+      "type": "number",
+      "label": "Default TTL",
+      "default": 3600,
+      "min": 0,
+      "help": "Default TTL value for records (in seconds)"
+    },
+    {
+      "name": "zoneSetMap",
+      "type": "object",
+      "label": "Zone Set Map",
+      "isKeyValueMap": true,
+      "valueIsArray": true,
+      "keyLabel": "Zone Pattern:",
+      "keyPlaceholder": "* or *.net or example.org",
+      "valueLabel": "Record Sets:",
+      "valuePlaceholder": "set1, set2",
+      "help": "Map zone patterns to record sets (key = zone pattern, value = comma-separated set names)"
+    },
+    {
+      "name": "sets",
+      "type": "array-of-objects",
+      "label": "Record Sets",
+      "itemLabel": "Set",
+      "help": "Define sets of DNS records",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Set Name",
+          "required": true,
+          "help": "Unique name for this record set"
+        },
+        {
+          "name": "enable",
+          "type": "boolean",
+          "label": "Enable",
+          "default": true
+        },
+        {
+          "name": "records",
+          "type": "array",
+          "label": "DNS Records",
+          "itemLabel": "Record",
+          "itemType": "string",
+          "help": "DNS records in standard format (e.g., '@ 3600 IN MX 10 mail.example.com.')"
+        }
+      ]
+    }
+  ]
+}
+

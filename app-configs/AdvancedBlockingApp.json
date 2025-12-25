@@ -1,0 +1,179 @@
+{
+  "id": "AdvancedBlockingApp",
+  "name": "Advanced Blocking App",
+  "description": "Blocks domain names using block lists, regex block lists, and AdGuardHome blocked services. Supports creating groups based on client's IP address or subnet.",
+  "fields": [
+    {
+      "name": "enableBlocking",
+      "type": "boolean",
+      "label": "Enable Blocking",
+      "default": true,
+      "help": "Enable or disable blocking functionality"
+    },
+    {
+      "name": "blockingAnswerTtl",
+      "type": "number",
+      "label": "Blocking Answer TTL",
+      "default": 30,
+      "min": 0,
+      "help": "TTL value for blocking responses (in seconds)"
+    },
+    {
+      "name": "blockListUrlUpdateIntervalHours",
+      "type": "number",
+      "label": "Block List Update Interval (Hours)",
+      "default": 24,
+      "min": 0,
+      "help": "Hours between block list updates"
+    },
+    {
+      "name": "blockListUrlUpdateIntervalMinutes",
+      "type": "number",
+      "label": "Block List Update Interval (Minutes)",
+      "default": 0,
+      "min": 0,
+      "max": 59,
+      "help": "Additional minutes for update interval"
+    },
+    {
+      "name": "localEndPointGroupMap",
+      "type": "object",
+      "label": "Local Endpoint Group Map",
+      "isKeyValueMap": true,
+      "keyLabel": "Endpoint:",
+      "keyPlaceholder": "127.0.0.1 or 192.168.1.1:53",
+      "valueLabel": "Group:",
+      "valuePlaceholder": "bypass",
+      "help": "Map local endpoints to groups (key = endpoint, value = group name)"
+    },
+    {
+      "name": "networkGroupMap",
+      "type": "object",
+      "label": "Network Group Map",
+      "isKeyValueMap": true,
+      "keyLabel": "Network:",
+      "keyPlaceholder": "192.168.1.0/24 or [::]/0",
+      "valueLabel": "Group:",
+      "valuePlaceholder": "everyone",
+      "help": "Map network addresses/subnets to groups (key = network CIDR, value = group name)"
+    },
+    {
+      "name": "groups",
+      "type": "array-of-objects",
+      "label": "Groups",
+      "itemLabel": "Group",
+      "help": "Define blocking groups with different rules",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Group Name",
+          "required": true,
+          "help": "Unique name for this group"
+        },
+        {
+          "name": "enableBlocking",
+          "type": "boolean",
+          "label": "Enable Blocking",
+          "default": true
+        },
+        {
+          "name": "allowTxtBlockingReport",
+          "type": "boolean",
+          "label": "Allow TXT Blocking Report",
+          "default": true,
+          "help": "Allow TXT queries to return blocking information"
+        },
+        {
+          "name": "blockAsNxDomain",
+          "type": "boolean",
+          "label": "Block as NXDOMAIN",
+          "default": false,
+          "help": "Return NXDOMAIN instead of blocking addresses"
+        },
+        {
+          "name": "blockingAddresses",
+          "type": "array",
+          "label": "Blocking Addresses",
+          "itemLabel": "Address",
+          "itemType": "string",
+          "default": ["0.0.0.0", "::"],
+          "help": "IP addresses to return for blocked domains"
+        },
+        {
+          "name": "allowed",
+          "type": "array",
+          "label": "Allowed Domains",
+          "itemLabel": "Domain",
+          "itemType": "string",
+          "help": "Domains to always allow (whitelist)"
+        },
+        {
+          "name": "blocked",
+          "type": "array",
+          "label": "Blocked Domains",
+          "itemLabel": "Domain",
+          "itemType": "string",
+          "help": "Domains to always block"
+        },
+        {
+          "name": "allowListUrls",
+          "type": "array",
+          "label": "Allow List URLs",
+          "itemLabel": "URL",
+          "itemType": "url",
+          "help": "URLs to download allow lists from"
+        },
+        {
+          "name": "blockListUrls",
+          "type": "array",
+          "label": "Block List URLs",
+          "itemLabel": "URL",
+          "itemType": "url",
+          "help": "URLs to download block lists from"
+        },
+        {
+          "name": "allowedRegex",
+          "type": "array",
+          "label": "Allowed Regex Patterns",
+          "itemLabel": "Pattern",
+          "itemType": "string",
+          "help": "Regex patterns for domains to allow"
+        },
+        {
+          "name": "blockedRegex",
+          "type": "array",
+          "label": "Blocked Regex Patterns",
+          "itemLabel": "Pattern",
+          "itemType": "string",
+          "help": "Regex patterns for domains to block"
+        },
+        {
+          "name": "regexAllowListUrls",
+          "type": "array",
+          "label": "Regex Allow List URLs",
+          "itemLabel": "URL",
+          "itemType": "url",
+          "help": "URLs to download regex allow lists from"
+        },
+        {
+          "name": "regexBlockListUrls",
+          "type": "array",
+          "label": "Regex Block List URLs",
+          "itemLabel": "URL",
+          "itemType": "url",
+          "help": "URLs to download regex block lists from"
+        },
+        {
+          "name": "adblockListUrls",
+          "type": "array",
+          "label": "AdBlock List URLs",
+          "itemLabel": "URL",
+          "itemType": "url",
+          "help": "URLs to download AdBlock format lists from"
+        }
+      ]
+    }
+  ]
+}
+

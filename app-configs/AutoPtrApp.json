@@ -1,0 +1,16 @@
+{
+  "id": "AutoPtrApp",
+  "name": "Auto PTR App",
+  "description": "Automatically generates PTR records for A and AAAA records.",
+  "fields": [
+    {
+      "name": "note",
+      "type": "textarea",
+      "label": "Note",
+      "default": "This app requires no configuration.",
+      "rows": 3,
+      "help": "Auto PTR App automatically generates PTR records and requires no configuration."
+    }
+  ]
+}
+

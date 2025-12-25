@@ -1,0 +1,54 @@
+{
+  "id": "FilterAaaaApp",
+  "name": "Filter AAAA App",
+  "description": "Filters AAAA (IPv6) records from DNS responses.",
+  "fields": [
+    {
+      "name": "enableFilterAaaa",
+      "type": "boolean",
+      "label": "Enable AAAA Filtering",
+      "default": true,
+      "help": "Enable or disable AAAA (IPv6) record filtering"
+    },
+    {
+      "name": "defaultTtl",
+      "type": "number",
+      "label": "Default TTL",
+      "default": 30,
+      "min": 0,
+      "help": "TTL value for filtered responses (in seconds)"
+    },
+    {
+      "name": "bypassLocalZones",
+      "type": "boolean",
+      "label": "Bypass Local Zones",
+      "default": false,
+      "help": "Don't filter AAAA records for local zones"
+    },
+    {
+      "name": "bypassNetworks",
+      "type": "array",
+      "label": "Bypass Networks",
+      "itemLabel": "Network",
+      "itemType": "string",
+      "help": "Network addresses/subnets to bypass filtering (CIDR notation)"
+    },
+    {
+      "name": "bypassDomains",
+      "type": "array",
+      "label": "Bypass Domains",
+      "itemLabel": "Domain",
+      "itemType": "string",
+      "help": "Domains to bypass AAAA filtering"
+    },
+    {
+      "name": "filterDomains",
+      "type": "array",
+      "label": "Filter Domains",
+      "itemLabel": "Domain",
+      "itemType": "string",
+      "help": "Specific domains to filter AAAA records for (if empty, filters all)"
+    }
+  ]
+}
+

@@ -1,0 +1,39 @@
+{
+  "id": "DropRequestsApp",
+  "name": "Drop Requests App",
+  "description": "Drops DNS requests based on configured rules.",
+  "fields": [
+    {
+      "name": "enableDropping",
+      "type": "boolean",
+      "label": "Enable Dropping",
+      "default": true,
+      "help": "Enable or disable request dropping"
+    },
+    {
+      "name": "dropNetworks",
+      "type": "array",
+      "label": "Drop Networks",
+      "itemLabel": "Network",
+      "itemType": "string",
+      "help": "Network addresses/subnets to drop requests from (CIDR notation)"
+    },
+    {
+      "name": "dropDomains",
+      "type": "array",
+      "label": "Drop Domains",
+      "itemLabel": "Domain",
+      "itemType": "string",
+      "help": "Domains to drop requests for"
+    },
+    {
+      "name": "dropQueryTypes",
+      "type": "array",
+      "label": "Drop Query Types",
+      "itemLabel": "Query Type",
+      "itemType": "string",
+      "help": "DNS query types to drop (e.g., 'A', 'AAAA', 'MX')"
+    }
+  ]
+}
+

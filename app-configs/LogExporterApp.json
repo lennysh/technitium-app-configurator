@@ -1,0 +1,117 @@
+{
+  "id": "LogExporterApp",
+  "name": "Log Exporter App",
+  "description": "Exports DNS query logs to files, HTTP endpoints, or syslog.",
+  "fields": [
+    {
+      "name": "maxQueueSize",
+      "type": "number",
+      "label": "Max Queue Size",
+      "default": 1000000,
+      "min": 0,
+      "help": "Maximum number of log entries to queue"
+    },
+    {
+      "name": "ebableEdnsLogging",
+      "type": "boolean",
+      "label": "Enable EDNS Logging",
+      "default": false,
+      "help": "Enable logging of EDNS options"
+    },
+    {
+      "name": "file",
+      "type": "object",
+      "label": "File Export",
+      "help": "Configure file-based log export",
+      "properties": [
+        {
+          "name": "path",
+          "type": "string",
+          "label": "File Path",
+          "default": "./dns_logs.json",
+          "help": "Path to log file"
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "label": "Enabled",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "http",
+      "type": "object",
+      "label": "HTTP Export",
+      "help": "Configure HTTP-based log export",
+      "properties": [
+        {
+          "name": "endpoint",
+          "type": "url",
+          "label": "Endpoint URL",
+          "default": "http://localhost:5000/logs",
+          "help": "HTTP endpoint to send logs to"
+        },
+        {
+          "name": "headers",
+          "type": "object",
+          "label": "HTTP Headers",
+          "isKeyValueMap": true,
+          "keyLabel": "Header:",
+          "keyPlaceholder": "Authorization",
+          "valueLabel": "Value:",
+          "valuePlaceholder": "Bearer token...",
+          "help": "HTTP headers to include in requests (key = header name, value = header value)"
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "label": "Enabled",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "syslog",
+      "type": "object",
+      "label": "Syslog Export",
+      "help": "Configure syslog-based log export",
+      "properties": [
+        {
+          "name": "address",
+          "type": "string",
+          "label": "Syslog Address",
+          "default": "127.0.0.1",
+          "help": "Syslog server address"
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "label": "Syslog Port",
+          "default": 514,
+          "min": 1,
+          "max": 65535,
+          "help": "Syslog server port"
+        },
+        {
+          "name": "protocol",
+          "type": "select",
+          "label": "Protocol",
+          "options": [
+            { "value": "UDP", "label": "UDP" },
+            { "value": "TCP", "label": "TCP" }
+          ],
+          "default": "UDP",
+          "help": "Protocol to use for syslog"
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "label": "Enabled",
+          "default": false
+        }
+      ]
+    }
+  ]
+}
+

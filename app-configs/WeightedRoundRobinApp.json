@@ -1,0 +1,16 @@
+{
+  "id": "WeightedRoundRobinApp",
+  "name": "Weighted Round Robin App",
+  "description": "Distributes DNS responses using weighted round-robin algorithm.",
+  "fields": [
+    {
+      "name": "note",
+      "type": "textarea",
+      "label": "Note",
+      "default": "This app requires no configuration. It automatically performs weighted round-robin DNS responses.",
+      "rows": 3,
+      "help": "Weighted Round Robin App automatically distributes DNS responses and requires no configuration."
+    }
+  ]
+}
+

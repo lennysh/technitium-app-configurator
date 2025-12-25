@@ -1,0 +1,32 @@
+{
+  "id": "DnsRebindingProtectionApp",
+  "name": "DNS Rebinding Protection App",
+  "description": "Protects against DNS rebinding attacks.",
+  "fields": [
+    {
+      "name": "enableProtection",
+      "type": "boolean",
+      "label": "Enable Protection",
+      "default": true,
+      "help": "Enable DNS rebinding protection"
+    },
+    {
+      "name": "allowedDomains",
+      "type": "array",
+      "label": "Allowed Domains",
+      "itemLabel": "Domain",
+      "itemType": "string",
+      "help": "Domains that are allowed to resolve to private IP addresses"
+    },
+    {
+      "name": "blockedNetworks",
+      "type": "array",
+      "label": "Blocked Networks",
+      "itemLabel": "Network",
+      "itemType": "string",
+      "default": ["127.0.0.0/8", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "169.254.0.0/16", "::1/128", "fc00::/7", "fe80::/10"],
+      "help": "Private network ranges to protect (CIDR notation)"
+    }
+  ]
+}
+

@@ -1,0 +1,24 @@
+{
+  "id": "WhatIsMyDnsApp",
+  "name": "What Is My DNS App",
+  "description": "Returns information about the DNS server handling the query.",
+  "fields": [
+    {
+      "name": "enable",
+      "type": "boolean",
+      "label": "Enable",
+      "default": true,
+      "help": "Enable or disable the What Is My DNS functionality"
+    },
+    {
+      "name": "domains",
+      "type": "array",
+      "label": "Query Domains",
+      "itemLabel": "Domain",
+      "itemType": "string",
+      "default": ["whatismydns.example.com"],
+      "help": "Domains that trigger the What Is My DNS response"
+    }
+  ]
+}
+

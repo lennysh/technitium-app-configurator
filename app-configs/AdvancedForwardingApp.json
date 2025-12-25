@@ -1,0 +1,218 @@
+{
+  "id": "AdvancedForwardingApp",
+  "name": "Advanced Forwarding App",
+  "description": "Forwards DNS queries to different upstream DNS servers based on client IP address or subnet groups.",
+  "fields": [
+    {
+      "name": "appPreference",
+      "type": "number",
+      "label": "App Preference",
+      "default": 200,
+      "min": 0,
+      "help": "Preference value for this app (lower = higher priority)"
+    },
+    {
+      "name": "enableForwarding",
+      "type": "boolean",
+      "label": "Enable Forwarding",
+      "default": true,
+      "help": "Enable or disable forwarding functionality"
+    },
+    {
+      "name": "proxyServers",
+      "type": "array-of-objects",
+      "label": "Proxy Servers",
+      "itemLabel": "Proxy Server",
+      "help": "Configure proxy servers for forwarding",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Name",
+          "required": true,
+          "help": "Unique name for this proxy server"
+        },
+        {
+          "name": "type",
+          "type": "select",
+          "label": "Type",
+          "required": true,
+          "options": [
+            { "value": "http", "label": "HTTP" },
+            { "value": "https", "label": "HTTPS" },
+            { "value": "socks5", "label": "SOCKS5" }
+          ],
+          "help": "Proxy server type"
+        },
+        {
+          "name": "proxyAddress",
+          "type": "string",
+          "label": "Proxy Address",
+          "required": true,
+          "placeholder": "localhost",
+          "help": "Proxy server address"
+        },
+        {
+          "name": "proxyPort",
+          "type": "number",
+          "label": "Proxy Port",
+          "required": true,
+          "min": 1,
+          "max": 65535,
+          "default": 1080,
+          "help": "Proxy server port"
+        },
+        {
+          "name": "proxyUsername",
+          "type": "string",
+          "label": "Proxy Username",
+          "help": "Proxy authentication username (optional)"
+        },
+        {
+          "name": "proxyPassword",
+          "type": "string",
+          "label": "Proxy Password",
+          "help": "Proxy authentication password (optional)"
+        }
+      ]
+    },
+    {
+      "name": "forwarders",
+      "type": "array-of-objects",
+      "label": "Forwarders",
+      "itemLabel": "Forwarder",
+      "help": "Configure DNS forwarders",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Name",
+          "required": true,
+          "help": "Unique name for this forwarder"
+        },
+        {
+          "name": "proxy",
+          "type": "string",
+          "label": "Proxy",
+          "help": "Proxy server name to use (from proxyServers)"
+        },
+        {
+          "name": "dnssecValidation",
+          "type": "boolean",
+          "label": "DNSSEC Validation",
+          "default": true,
+          "help": "Enable DNSSEC validation"
+        },
+        {
+          "name": "forwarderProtocol",
+          "type": "select",
+          "label": "Forwarder Protocol",
+          "required": true,
+          "options": [
+            { "value": "Udp", "label": "UDP" },
+            { "value": "Tcp", "label": "TCP" },
+            { "value": "Tls", "label": "TLS" },
+            { "value": "Https", "label": "HTTPS" },
+            { "value": "Quic", "label": "QUIC" }
+          ],
+          "help": "Protocol to use for forwarding"
+        },
+        {
+          "name": "forwarderAddresses",
+          "type": "array",
+          "label": "Forwarder Addresses",
+          "itemLabel": "Address",
+          "itemType": "string",
+          "help": "DNS server addresses (IP or URL format)"
+        }
+      ]
+    },
+    {
+      "name": "networkGroupMap",
+      "type": "object",
+      "label": "Network Group Map",
+      "isKeyValueMap": true,
+      "keyLabel": "Network:",
+      "keyPlaceholder": "0.0.0.0/0 or [::]/0",
+      "valueLabel": "Group:",
+      "valuePlaceholder": "everyone",
+      "help": "Map network addresses/subnets to groups (key = network CIDR, value = group name)"
+    },
+    {
+      "name": "groups",
+      "type": "array-of-objects",
+      "label": "Groups",
+      "itemLabel": "Group",
+      "help": "Define forwarding groups with different rules",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Group Name",
+          "required": true,
+          "help": "Unique name for this group"
+        },
+        {
+          "name": "enableForwarding",
+          "type": "boolean",
+          "label": "Enable Forwarding",
+          "default": true
+        },
+        {
+          "name": "forwardings",
+          "type": "array-of-objects",
+          "label": "Forwardings",
+          "itemLabel": "Forwarding",
+          "help": "Configure domain-specific forwardings",
+          "itemProperties": [
+            {
+              "name": "forwarders",
+              "type": "array",
+              "label": "Forwarders",
+              "itemLabel": "Forwarder",
+              "itemType": "string",
+              "help": "Names of forwarders to use (from forwarders list)"
+            },
+            {
+              "name": "domains",
+              "type": "array",
+              "label": "Domains",
+              "itemLabel": "Domain",
+              "itemType": "string",
+              "help": "Domain patterns to forward (use * for all)"
+            }
+          ]
+        },
+        {
+          "name": "adguardUpstreams",
+          "type": "array-of-objects",
+          "label": "AdGuard Upstreams",
+          "itemLabel": "Upstream",
+          "help": "Configure AdGuard format upstreams",
+          "itemProperties": [
+            {
+              "name": "proxy",
+              "type": "string",
+              "label": "Proxy",
+              "help": "Proxy server name to use"
+            },
+            {
+              "name": "dnssecValidation",
+              "type": "boolean",
+              "label": "DNSSEC Validation",
+              "default": true
+            },
+            {
+              "name": "configFile",
+              "type": "string",
+              "label": "Config File",
+              "placeholder": "adguard-upstreams.txt",
+              "help": "AdGuard upstreams configuration file"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

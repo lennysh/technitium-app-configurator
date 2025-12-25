@@ -1,0 +1,23 @@
+{
+  "id": "NxDomainOverrideApp",
+  "name": "NXDOMAIN Override App",
+  "description": "Overrides responses to return NXDOMAIN for specific domains.",
+  "fields": [
+    {
+      "name": "enableOverride",
+      "type": "boolean",
+      "label": "Enable Override",
+      "default": true,
+      "help": "Enable or disable NXDOMAIN override"
+    },
+    {
+      "name": "domains",
+      "type": "array",
+      "label": "Domains",
+      "itemLabel": "Domain",
+      "itemType": "string",
+      "help": "Domains to override with NXDOMAIN"
+    }
+  ]
+}
+

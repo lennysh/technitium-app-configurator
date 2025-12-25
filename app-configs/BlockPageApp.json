@@ -1,0 +1,103 @@
+{
+  "id": "BlockPageApp",
+  "name": "Block Page App",
+  "description": "Serves custom block pages when domains are blocked.",
+  "fields": [
+    {
+      "name": "blockPages",
+      "type": "array-of-objects",
+      "label": "Block Pages",
+      "itemLabel": "Block Page",
+      "help": "Configure block pages for different scenarios",
+      "itemProperties": [
+        {
+          "name": "name",
+          "type": "string",
+          "label": "Name",
+          "required": true,
+          "default": "default",
+          "help": "Unique name for this block page configuration"
+        },
+        {
+          "name": "enableWebServer",
+          "type": "boolean",
+          "label": "Enable Web Server",
+          "default": true,
+          "help": "Enable the built-in web server for block pages"
+        },
+        {
+          "name": "webServerLocalAddresses",
+          "type": "array",
+          "label": "Web Server Local Addresses",
+          "itemLabel": "Address",
+          "itemType": "string",
+          "default": ["0.0.0.0", "::"],
+          "help": "Local addresses to bind the web server to"
+        },
+        {
+          "name": "webServerUseSelfSignedTlsCertificate",
+          "type": "boolean",
+          "label": "Use Self-Signed TLS Certificate",
+          "default": true,
+          "help": "Use a self-signed TLS certificate for HTTPS"
+        },
+        {
+          "name": "webServerTlsCertificateFilePath",
+          "type": "string",
+          "label": "TLS Certificate File Path",
+          "help": "Path to TLS certificate file (optional)"
+        },
+        {
+          "name": "webServerTlsCertificatePassword",
+          "type": "string",
+          "label": "TLS Certificate Password",
+          "help": "Password for TLS certificate (optional)"
+        },
+        {
+          "name": "webServerRootPath",
+          "type": "string",
+          "label": "Web Server Root Path",
+          "default": "wwwroot",
+          "help": "Path to web server root directory"
+        },
+        {
+          "name": "serveBlockPageFromWebServerRoot",
+          "type": "boolean",
+          "label": "Serve Block Page from Web Server Root",
+          "default": false,
+          "help": "Serve block page from web server root instead of app directory"
+        },
+        {
+          "name": "blockPageTitle",
+          "type": "string",
+          "label": "Block Page Title",
+          "default": "Website Blocked",
+          "help": "Title displayed on the block page"
+        },
+        {
+          "name": "blockPageHeading",
+          "type": "string",
+          "label": "Block Page Heading",
+          "default": "Website Blocked",
+          "help": "Heading displayed on the block page"
+        },
+        {
+          "name": "blockPageMessage",
+          "type": "textarea",
+          "label": "Block Page Message",
+          "default": "This website has been blocked by your network administrator.",
+          "rows": 3,
+          "help": "Message displayed on the block page"
+        },
+        {
+          "name": "includeBlockingInfo",
+          "type": "boolean",
+          "label": "Include Blocking Info",
+          "default": true,
+          "help": "Include blocking information on the block page"
+        }
+      ]
+    }
+  ]
+}
+

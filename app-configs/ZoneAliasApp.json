@@ -1,0 +1,38 @@
+{
+  "id": "ZoneAliasApp",
+  "name": "Zone Alias App",
+  "description": "Creates aliases for DNS zones.",
+  "fields": [
+    {
+      "name": "enable",
+      "type": "boolean",
+      "label": "Enable",
+      "default": true,
+      "help": "Enable or disable zone aliasing"
+    },
+    {
+      "name": "aliases",
+      "type": "array-of-objects",
+      "label": "Zone Aliases",
+      "itemLabel": "Alias",
+      "help": "Configure zone aliases",
+      "itemProperties": [
+        {
+          "name": "alias",
+          "type": "string",
+          "label": "Alias Zone",
+          "required": true,
+          "help": "Zone name to create alias for"
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "label": "Target Zone",
+          "required": true,
+          "help": "Target zone name to alias to"
+        }
+      ]
+    }
+  ]
+}
+
