@@ -305,29 +305,14 @@ This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
 
 See the [LICENSE](LICENSE) file for the full license text.
 
-## Releases
+## Available Versions
 
-Releases are automatically built and published to Docker Hub when:
-
-- **Creating a GitHub Release**: When you create a release on GitHub (e.g., `v0.1.0`), the workflow automatically builds and pushes the image with that version tag.
-- **Pushing to a release branch**: Push to a branch named `release/X.Y.Z` or `releases/X.Y.Z` (e.g., `release/0.1.0`).
-- **Manual trigger**: Use the "Run workflow" button in GitHub Actions and specify a version number.
-
-The image is available on Docker Hub at [lennysh/technitium-app-configurator](https://hub.docker.com/r/lennysh/technitium-app-configurator):
+Images are available on Docker Hub at [lennysh/technitium-app-configurator](https://hub.docker.com/r/lennysh/technitium-app-configurator):
 
 ```bash
 docker pull lennysh/technitium-app-configurator:<version>
 docker pull lennysh/technitium-app-configurator:latest
 ```
-
-### Setting up Docker Hub credentials
-
-To enable automatic publishing, add the following secrets to your GitHub repository:
-
-1. Go to Settings → Secrets and variables → Actions
-2. Add the following secrets:
-   - `DOCKERHUB_USERNAME`: Your Docker Hub username
-   - `DOCKERHUB_TOKEN`: Your Docker Hub access token (create one at https://hub.docker.com/settings/security)
 
 ## Contributing
 
