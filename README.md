@@ -238,7 +238,9 @@ The only data the server receives is standard HTTP request headers (IP address, 
 
 ## License
 
-This project is part of the Technitium DNS Server ecosystem.
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
+
+See the [LICENSE](LICENSE) file for the full license text.
 
 ## Contributing
 
@@ -247,8 +249,3 @@ Contributions are welcome! To add support for new Technitium DNS Server apps:
 1. Create a JSON config file following the structure shown in the "Adding New Apps" section
 2. Add the filename to `config-files.json`
 3. Submit a pull request
-
-## Repository
-
-This repository is ready for public use. All code is client-side only, with no server-side processing or data storage.
-
