@@ -5,6 +5,9 @@ on:
     branches:
       - 'release/**'
       - 'releases/**'
+    tags:
+      - 'v*'
+      - '[0-9]+.[0-9]+.[0-9]+*'
   release:
     types: [created, published]
   workflow_dispatch:
@@ -21,6 +24,9 @@ env:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    concurrency:
+      group: release-${{ github.event.release.tag_name || github.ref_name || 'manual' }}
+      cancel-in-progress: false
     permissions:
       contents: read
       packages: write
@@ -44,8 +50,13 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             VERSION="${{ github.event.inputs.version }}"
           elif [ "${{ github.event_name }}" = "release" ]; then
-            VERSION="${GITHUB_REF#refs/tags/}"
+            # Get tag from release event
+            VERSION="${{ github.event.release.tag_name }}"
             # Remove 'v' prefix if present
+            VERSION="${VERSION#v}"
+          elif [[ "${{ github.ref }}" =~ ^refs/tags/ ]]; then
+            # Extract from tag (e.g., v1.0.0 or 1.0.0)
+            VERSION="${GITHUB_REF#refs/tags/}"
             VERSION="${VERSION#v}"
           else
             # Extract version from branch name (e.g., release/1.0.0 or releases/v1.0.0)
